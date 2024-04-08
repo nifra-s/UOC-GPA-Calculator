@@ -21,34 +21,27 @@
   border-color: #66afe9;
 }
 
-.bookmarks {
-  margin: 5px 5px;
-  padding: 3px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin: 0;
 }
-
-.bookmark {
-  display: flex;
-  border-bottom-color: #00254d;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-radius: 0.8rem;
-  padding: 3px;
-  padding-bottom: 7px;
-  margin-bottom: 7px;
+.profile {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.bookmark-title {
-  padding-left: 2px;
+h1 {
+  text-align: center;
 }
-
-.bookmark-controls img {
-  margin: 0 4px;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
+.profile-img {
+  display: block;
+  background-color: #ffffff00;
+  padding: 10px;
+  margin: 0 auto;
+  width: 300px;
 }
-
-.bookmark-controls {
-  flex: auto;
-  text-align: right;
+.profile-info {
+  text-align: center;
 }
