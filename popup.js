@@ -1,30 +1,22 @@
 import { getActiveTabURL } from "./utils.js";
 
 
-const viewBookmarks = (currentBookmarks) => {
-  const bookmarksElement = document.getElementById("bookmarks");
-  bookmarksElement.innerHTML = "";
+const viewBookmarks = (stuInfo) => {
+  const bookmarks = document.getElementById("bookmarks");
   const bookmarkTitleElement = document.createElement("div");
-
-  if (currentBookmarks.length > 0) {
-    bookmarkTitleElement.textContent = currentBookmarks;
-    bookmarkTitleElement.className = "bookmark-title";
-    bookmarks.appendChild(bookmarkTitleElement);
-  } else {
-    bookmarksElement.innerHTML = '<i class="row">No bookmarks to show</i>';
-  }
-
-  return;
+  bookmarkTitleElement.textContent = stuInfo;
+  bookmarkTitleElement.className = "bookmark-title";
+  bookmarks.appendChild(bookmarkTitleElement);
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
   const activeTab = await getActiveTabURL();
 
   if (activeTab.url.includes("results/result_sheet")) {
-    viewBookmarks("2018t1-ee-5-001");
+    const stuInfo = await chrome.storage.sync.get();
+    viewBookmarks(stuInfo.regNum);
   } else {
     const container = document.getElementsByClassName("container")[0];
-
     container.innerHTML =
       '<div class="title">This is not a youtube video page.</div>';
   }
