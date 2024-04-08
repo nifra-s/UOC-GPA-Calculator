@@ -1,0 +1,26 @@
+{
+  "name": "GPA Calculator(UOC)",
+  "version": "0.1.0",
+  "description": "Calculate your GPA for University of Colombo",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://sis.cmb.ac.lk/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://sis.cmb.ac.lk/*/results/result_sheet"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_title": "UOC GPA Calculator",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
