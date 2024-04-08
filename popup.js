@@ -1,22 +1,15 @@
 import { getActiveTabURL } from "./utils.js";
 
-const addNewBookmark = (bookmarks, bookmark) => {
-  const newBookmarkElement = document.createElement("div");
 
-  newBookmarkElement.setAttribute("timestamp", bookmark.time);
-  bookmarks.appendChild(newBookmarkElement);
-};
-
-const viewBookmarks = (currentIndex) => {
+const viewBookmarks = (currentBookmarks) => {
   const bookmarksElement = document.getElementById("bookmarks");
   bookmarksElement.innerHTML = "";
+  const bookmarkTitleElement = document.createElement("div");
 
-  if (currentIndex.length > 0) {
-    const newBookmarkElement = document.createElement("div");
-    newBookmarkElement.className = "bookmark";
-    newBookmarkElement.textContent = currentIndex;
-
-    bookmarksElement.appendChild(newBookmarkElement);
+  if (currentBookmarks.length > 0) {
+    bookmarkTitleElement.textContent = currentBookmarks;
+    bookmarkTitleElement.className = "bookmark-title";
+    bookmarks.appendChild(bookmarkTitleElement);
   } else {
     bookmarksElement.innerHTML = '<i class="row">No bookmarks to show</i>';
   }
@@ -28,9 +21,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const activeTab = await getActiveTabURL();
 
   if (activeTab.url.includes("results/result_sheet")) {
+    viewBookmarks("2018t1-ee-5-001");
   } else {
     const container = document.getElementsByClassName("container")[0];
 
-    container.innerHTML = '<div class="title">Go to the Results Page</div>';
+    container.innerHTML =
+      '<div class="title">This is not a youtube video page.</div>';
   }
 });
