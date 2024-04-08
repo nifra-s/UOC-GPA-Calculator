@@ -35,6 +35,28 @@ body {
 h1 {
   text-align: center;
 }
+
+button { 
+    text-decoration: none; 
+    border: none; 
+    padding: 12px 40px; 
+    font-size: 16px; 
+    background-color: green; 
+    color: #fff; 
+    border-radius: 5px; 
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    cursor: pointer; 
+    outline: none; 
+    transition: 0.2s all; 
+} 
+/* Adding transformation when the button is active */ 
+  
+button:active { 
+    transform: scale(0.98); 
+    /* Scaling button to 0.98 to its original size */ 
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+    /* Lowering the shadow */ 
+} 
 .profile-img {
   display: block;
   background-color: #ffffff00;
@@ -44,4 +66,5 @@ h1 {
 }
 .profile-info {
   text-align: center;
+  padding: 20px;
 }
