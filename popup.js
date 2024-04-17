@@ -1,57 +1,53 @@
 import { getActiveTabURL } from "./utils.js";
 
-
-const viewBookmarks = (stuInfo, gpa, faculty) => {
+const viewBookmarks = (stuInfo, gpa, c_class) => {
   const regNum = document.getElementById("reg_num");
-  const facImg = document.getElementById("fac_img");
-  const fName = document.getElementById("f_name");
+  const fname = document.getElementById("fname");
   const level = document.getElementById("level");
-  const course = document.getElementById("course");
   const degree = document.getElementById("degree");
   const GPA = document.getElementById("gpa");
+  const currentClass = document.getElementById("c_class");
 
-  const facImgTem = document.createElement("img");
-  const regNumTem = document.createElement("a");
-  const fNameTem = document.createElement("a");
-  const levelTem = document.createElement("a");
-  const courseTem = document.createElement("a");
-  const degreeTem = document.createElement("a");
-  const GPATem = document.createElement("h1");
+  const regNumTem = document.createElement("div");
+  const nameTem = document.createElement("div");
+  const levelTem = document.createElement("div");
+  const degreeTem = document.createElement("div");
+  const c_classTem = document.createElement("div");
+  const gpaTem = document.createElement("h2");
 
   regNumTem.textContent = stuInfo.regNum;
+  regNumTem.className = "col-7";
   regNum.appendChild(regNumTem);
 
-  fNameTem.textContent = stuInfo.fName;
-  fName.appendChild(fNameTem);
+  nameTem.textContent = stuInfo.fname;
+  nameTem.className = "col-7";
+  fname.appendChild(nameTem);
 
   levelTem.textContent = stuInfo.level;
+  levelTem.className = "col-7 details";
   level.appendChild(levelTem);
 
-  courseTem.textContent = stuInfo.course;
-  course.appendChild(courseTem);
+  c_classTem.textContent = c_class;
+  c_classTem.className = "col-7 details";
+  currentClass.appendChild(c_classTem);
 
   degreeTem.textContent = stuInfo.degree;
+  degreeTem.className = "col-7 details";
   degree.appendChild(degreeTem);
 
-  GPATem.textContent = gpa;
-  GPA.appendChild(GPATem);
-
-  facImgTem.className = "profile-img";
-  facImgTem.src = `./assets/fac/${faculty}.png`;
-  facImgTem.alt = "ProfilePicture";
-  facImg.appendChild(facImgTem);
+  gpaTem.textContent = gpa;
+  GPA.appendChild(gpaTem);
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
   const activeTab = await getActiveTabURL();
 
   if (activeTab.url.includes("results/result_sheet")) {
-    const fac = activeTab.url.split("/")[3];
     const stuInfo = await chrome.storage.sync.get();
-    viewBookmarks(stuInfo.info, stuInfo.gpa, fac);
+    viewBookmarks(stuInfo.info, stuInfo.gpa, stuInfo.currentClass);
   } else {
-    const container = document.getElementsByClassName("container")[0];
+    const container = document.getElementById("calculator");
     container.innerHTML =
-      '<div class="title">This is not a youtube video page.</div>';
+      '<div class="label red">Go to your Results Page</div>';
   }
 });

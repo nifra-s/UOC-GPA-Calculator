@@ -1,70 +1,32 @@
 .container {
-  width: 280px;
-  color: #314d3e;
+  width: 420px;
+  height: 380px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
-.title {
-  font-size: 14px;
-  font-weight: bold;
-  padding: 8px;
+.card {
+  border-radius: 0px;
+  --bs-card-border-color: rgba(0, 0, 0, 0);
 }
-
-.textbox {
-  width: 100%;
-  font-size: 12px;
-  margin: 0;
-  padding: 0px 2px;
-}
-
-.textbox:focus {
-  outline: 0;
-  border-color: #66afe9;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  margin: 0;
-}
-.profile {
-  width: 400px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-h1 {
+.center {
   text-align: center;
 }
 
-button { 
-    text-decoration: none; 
-    border: none; 
-    padding: 12px 40px; 
-    font-size: 16px; 
-    background-color: green; 
-    color: #fff; 
-    border-radius: 5px; 
-    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
-    cursor: pointer; 
-    outline: none; 
-    transition: 0.2s all; 
-} 
-/* Adding transformation when the button is active */ 
-  
-button:active { 
-    transform: scale(0.98); 
-    /* Scaling button to 0.98 to its original size */ 
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
-    /* Lowering the shadow */ 
-} 
-.profile-img {
-  display: block;
-  background-color: #ffffff00;
-  padding: 10px;
-  margin: 0 auto;
-  width: 300px;
+.details {
+  width: 70%;
 }
-.profile-info {
-  text-align: center;
-  padding: 20px;
+
+.label {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.525);
+}
+
+.gpa {
+    font-weight: 600;
+    color: #BB86FC;
+}
+
+.red{
+  color: #CF6679;
 }
